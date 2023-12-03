@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://db80davk5dhck"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Derive/Tile.cs" id="1_gsrim"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7rhg6"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_24qcg"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1.00001),
+"format": 4097,
+"index_count": 12,
+"index_data": PackedByteArray(4, 0, 3, 0, 5, 0, 4, 0, 2, 0, 3, 0, 0, 0, 5, 0, 1, 0, 0, 0, 4, 0, 5, 0),
+"primitive": 3,
+"vertex_count": 6,
+"vertex_data": PackedByteArray(0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 128)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kpwem"]
+resource_name = "UnitTile-7381a00a7a5c7197b9232d5ac8a8a335_hexagon"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1.00001),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 63),
+"format": 4119,
+"index_count": 12,
+"index_data": PackedByteArray(4, 0, 3, 0, 5, 0, 4, 0, 2, 0, 3, 0, 0, 0, 5, 0, 1, 0, 0, 0, 4, 0, 5, 0),
+"material": SubResource("StandardMaterial3D_7rhg6"),
+"primitive": 3,
+"vertex_count": 6,
+"vertex_data": PackedByteArray(0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 0, 63, 255, 127, 255, 255, 255, 255, 255, 191, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 0, 63, 255, 127, 255, 255, 255, 255, 255, 191, 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 0, 191, 255, 127, 255, 255, 255, 255, 255, 191, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 0, 191, 255, 127, 255, 255, 255, 255, 255, 191, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 128, 255, 127, 255, 255, 255, 255, 255, 191, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 128, 255, 127, 255, 255, 255, 255, 255, 191)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_24qcg")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_usmnn"]
+data = PackedVector3Array(-0.5, 0, 0, 0.25, 0, -0.5, 0.5, 0, 0, -0.5, 0, 0, -0.25, 0, -0.5, 0.25, 0, -0.5, -0.25, 0, 0.5, 0.5, 0, 0, 0.25, 0, 0.5, -0.25, 0, 0.5, -0.5, 0, 0, 0.5, 0, 0)
+
+[node name="UnitTile" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.866025, 0, 0, 0)
+mesh = SubResource("ArrayMesh_kpwem")
+skeleton = NodePath("")
+script = ExtResource("1_gsrim")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_usmnn")

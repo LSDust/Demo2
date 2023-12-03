@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://lwnr45djc3g8"]
+
+[ext_resource type="PackedScene" uid="uid://ddl8soj3q6ybg" path="res://Assets/Scenes/hex_tile.tscn" id="2_clrol"]
+[ext_resource type="Script" path="res://Assets/Scripts/Derive/Ground.cs" id="2_dyiet"]
+[ext_resource type="PackedScene" uid="uid://iu4g1yfa5asf" path="res://Assets/Scenes/character.tscn" id="3_h3gie"]
+[ext_resource type="PackedScene" uid="uid://cysncy5n0q04" path="res://Assets/Scenes/ui.tscn" id="4_lpa5k"]
+
+[node name="BattleScene" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.738067, 0.674728, 0, -0.674728, 0.738067, 0, 18.7121, 13.3926)
+
+[node name="Ground" type="Node3D" parent="."]
+script = ExtResource("2_dyiet")
+TilePrefab = ExtResource("2_clrol")
+
+[node name="Player" parent="." instance=ExtResource("3_h3gie")]
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, 0, 40, 0)
+fov = 20.0
+size = 20.0
+
+[node name="UI" parent="." instance=ExtResource("4_lpa5k")]

@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://cysncy5n0q04"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/UI/Ui.cs" id="1_r7q2n"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/Joystick.cs" id="2_nwd3o"]
+[ext_resource type="Texture2D" uid="uid://dslwyfbb6nj1i" path="res://Assets/Arts/2D/手机虚拟轴.png" id="3_2l18c"]
+[ext_resource type="Texture2D" uid="uid://cuwml08buk7gg" path="res://Assets/Arts/2D/轴指针.png" id="4_if0x3"]
+[ext_resource type="Texture2D" uid="uid://63yfgsxumufb" path="res://Assets/Arts/2D/skillDart.png" id="5_v0ro1"]
+[ext_resource type="Texture2D" uid="uid://csermmueef1l6" path="res://Assets/Arts/2D/blade.png" id="6_3s8nd"]
+[ext_resource type="Texture2D" uid="uid://dejrn1k42k8iq" path="res://Assets/Arts/2D/wormhole.png" id="7_8qx6o"]
+[ext_resource type="Texture2D" uid="uid://b05vnbmf4f8li" path="res://Assets/Arts/2D/skillMove.png" id="8_t8gs8"]
+[ext_resource type="Texture2D" uid="uid://cojvjlvyx0fp7" path="res://Assets/Arts/2D/A.png" id="9_ust1p"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/SkillA.cs" id="10_otggl"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_r7q2n")
+
+[node name="Joystick6" type="CenterContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -400.0
+offset_right = 400.0
+offset_bottom = -100.0
+grow_vertical = 0
+script = ExtResource("2_nwd3o")
+
+[node name="Control" type="Control" parent="Joystick6"]
+layout_mode = 2
+
+[node name="Plate" type="Sprite2D" parent="Joystick6/Control"]
+texture = ExtResource("3_2l18c")
+
+[node name="Point" type="Sprite2D" parent="Joystick6/Control"]
+texture = ExtResource("4_if0x3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Dart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("5_v0ro1")
+
+[node name="Blade" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("6_3s8nd")
+
+[node name="Wormhole" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("7_8qx6o")
+
+[node name="Move" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("8_t8gs8")
+
+[node name="A" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -300.0
+offset_right = -162.0
+offset_bottom = -142.0
+grow_horizontal = 0
+grow_vertical = 0
+icon = ExtResource("9_ust1p")
+script = ExtResource("10_otggl")
